@@ -1,15 +1,15 @@
 # Mermaid: State Machine
 
-:::mermaid
+```mermaid
 stateDiagram-v2
     [*] --> recherche
     recherche --> attaque : agent.distance > 0
     attaque --> recherche : agent.x == ennemi.x \nand \nagent.y == ennemi.y
-:::
+```
 
 https://refactoring.guru/design-patterns/state
 
-:::mermaid
+```mermaid
 classDiagram
     State <|-- AttackState: Inheritance
     State <|-- SearchState: Inheritance
@@ -32,9 +32,9 @@ classDiagram
     class SpecialAgent{
         +update() void
     }
-:::
+```
 
-:::mermaid
+```mermaid
 sequenceDiagram
     alt initialisation
     main.py->>+SpecialAgent: instanciation agent
@@ -64,4 +64,4 @@ sequenceDiagram
     AttackState->>+AttackState: Regarder si plus d'ennemi sinon poursuivre et tirer sinon changer etat
     AttackState->>+StateMachine: setState(AttackState(...))
     end
-:::
+```
