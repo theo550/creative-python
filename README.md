@@ -1,13 +1,14 @@
 # Mermaid: State Machine
+https://refactoring.guru/design-patterns/state
 
+### State Diagram
 ```mermaid
 stateDiagram-v2
     [*] --> recherche
     recherche --> attaque : agent.distance > 0
     attaque --> recherche : agent.x == ennemi.x \nand \nagent.y == ennemi.y
 ```
-
-https://refactoring.guru/design-patterns/state
+### Class Diagram
 
 ```mermaid
 classDiagram
@@ -24,15 +25,17 @@ classDiagram
     }
     State --* StateMachine: Composition
     StateMachine --o State : Aggregation
-    StateMachine <|-- SpecialAgent: Inheritance
+    StateMachine --* SpecialAgent: Composition
     StateMachine: -actualState State
     StateMachine: +setState(State) void
     StateMachine: +doAction() void
-    StateMachine: +onDoAction() void
     class SpecialAgent{
         +update() void
+        +fsm
     }
 ```
+
+### Sequence Diagram
 
 ```mermaid
 sequenceDiagram
